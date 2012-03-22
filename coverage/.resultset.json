@@ -1,14 +1,22 @@
 {
   "RSpec": {
     "coverage": {
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/config/environment.rb": [
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/config/environment.rb": [
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         null,
         1,
         null,
         null,
         1
       ],
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/config/application.rb": [
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/config/application.rb": [
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         1,
         null,
         1,
@@ -48,7 +56,10 @@
         null,
         null,
         null,
+<<<<<<< HEAD
         null,
+=======
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         1,
         null,
         null,
@@ -73,7 +84,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/config/boot.rb": [
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/config/boot.rb": [
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         1,
         null,
         null,
@@ -81,7 +96,11 @@
         null,
         1
       ],
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/config/environments/test.rb": [
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/config/environments/test.rb": [
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         1,
         null,
         null,
@@ -91,6 +110,13 @@
         null,
         1,
         null,
+<<<<<<< HEAD
+=======
+        1,
+        1,
+        1,
+        null,
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         null,
         1,
         1,
@@ -120,7 +146,11 @@
         1,
         null
       ],
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/config/initializers/backtrace_silencers.rb": [
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/config/initializers/backtrace_silencers.rb": [
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         null,
         null,
         null,
@@ -129,7 +159,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/config/initializers/inflections.rb": [
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/config/initializers/inflections.rb": [
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         null,
         null,
         null,
@@ -146,14 +180,22 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/config/initializers/mime_types.rb": [
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/config/initializers/mime_types.rb": [
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         null,
         null,
         null,
         null,
         null
       ],
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/config/initializers/secret_token.rb": [
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/config/initializers/secret_token.rb": [
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         null,
         null,
         null,
@@ -162,7 +204,11 @@
         null,
         1
       ],
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/config/initializers/session_store.rb": [
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/config/initializers/session_store.rb": [
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         null,
         null,
         1,
@@ -172,7 +218,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/config/initializers/wrap_parameters.rb": [
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/config/initializers/wrap_parameters.rb": [
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         null,
         null,
         null,
@@ -188,16 +238,36 @@
         1,
         null
       ],
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/app/controllers/application_controller.rb": [
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/app/controllers/application_controller.rb": [
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         1,
         1,
         null
       ],
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/app/helpers/key_helper.rb": [
         1,
         null
       ],
       "/Users/haroldrangelcharris/projects/API_Soccer_field/app/controllers/authenticate_controller.rb": [
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/leonardo/proyects/API_Soccer_Fields/app/helpers/authenticate_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/leonardo/proyects/API_Soccer_Fields/app/helpers/key_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/leonardo/proyects/API_Soccer_Fields/app/controllers/authenticate_controller.rb": [
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         1,
         1,
         0,
@@ -231,7 +301,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/app/controllers/key_controller.rb": [
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/app/controllers/key_controller.rb": [
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         1,
         1,
         null,
@@ -245,12 +319,21 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/lib/authentication/KeysManager.rb": [
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/lib/authentication/KeysManager.rb": [
+        1,
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         null,
         1,
         null,
         1,
+<<<<<<< HEAD
         2,
+=======
+        1,
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         null,
         null,
         1,
@@ -258,13 +341,36 @@
         null,
         null,
         1,
+<<<<<<< HEAD
         3,
+=======
+        4,
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         null,
         null,
         null,
         null
       ],
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/config/routes.rb": [
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/lib/authentication/encoder.rb": [
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/Users/leonardo/proyects/API_Soccer_Fields/config/routes.rb": [
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         1,
         null,
         null,
@@ -332,7 +438,11 @@
         1,
         null
       ],
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/spec/helpers/key_helper_spec.rb": [
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/spec/helpers/key_helper_spec.rb": [
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         1,
         null,
         null,
@@ -349,14 +459,61 @@
         1,
         null
       ],
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/spec/lib/authentication/KeysManager_spec.rb": [
         1,
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/spec/lib/authentication/auth_manager_spec.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
         1,
         null,
         1,
         1,
         1,
         1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/leonardo/proyects/API_Soccer_Fields/lib/authentication/auth_manager.rb": [
+        1,
+        null,
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+<<<<<<< HEAD
+=======
+        null,
+        null,
+        1,
+        null,
+        1,
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         1,
         1,
         1,
@@ -364,34 +521,68 @@
         null,
         0,
         null,
+<<<<<<< HEAD
         1,
+=======
+        null,
+        0,
         null,
         null,
         null,
         null
       ],
+      "/Users/leonardo/proyects/API_Soccer_Fields/spec/lib/authentication/KeysManager_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        0,
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
+        null,
+        null,
+        null,
+        null
+      ],
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/spec/views/key/create.html.erb_spec.rb": [
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/spec/views/key/create.html.erb_spec.rb": [
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         1,
         null,
         1,
         1,
         null
       ],
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/spec/views/key/destroy.html.erb_spec.rb": [
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/spec/views/key/destroy.html.erb_spec.rb": [
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         1,
         null,
         1,
         1,
         null
       ],
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/spec/views/keys_controller/create.html.erb_spec.rb": [
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/spec/views/keys_controller/create.html.erb_spec.rb": [
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         1,
         null,
         1,
         1,
         null
       ],
+<<<<<<< HEAD
       "/Users/haroldrangelcharris/projects/API_Soccer_field/spec/views/keys_controller/destroy.html.erb_spec.rb": [
+=======
+      "/Users/leonardo/proyects/API_Soccer_Fields/spec/views/keys_controller/destroy.html.erb_spec.rb": [
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
         1,
         null,
         1,
@@ -399,6 +590,10 @@
         null
       ]
     },
+<<<<<<< HEAD
     "timestamp": 1332436287
+=======
+    "timestamp": 1332440770
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
   }
 }

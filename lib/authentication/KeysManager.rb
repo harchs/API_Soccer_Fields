@@ -1,5 +1,6 @@
+require "encoder"
 
-class KeysManager
+class KeysManager < Encoder
 
 	def create_PublicKey(appName)
 		public_key = secure_digest(appName)

@@ -11,6 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20120322180023) do
 
   create_table "key_apps", :force => true do |t|
@@ -20,5 +21,8 @@ ActiveRecord::Schema.define(:version => 20120322180023) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+=======
+ActiveRecord::Schema.define(:version => 0) do
+>>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
 
 end

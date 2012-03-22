@@ -11,7 +11,7 @@ class KeyController < ApplicationController
   	keys['private_key'] = privateKey
   	keys['app_name'] = params[:appName]
 
-  	@app_data = KeyApp.save_keys(keys)
+  	@app_data = KeyApp.find_by_app_name(params[:appName]) || KeyApp.save_keys(keys)
   	
   end
 
