@@ -3,7 +3,7 @@ require 'KeysManager'
 
 describe KeysManager do 
 	describe "create_PublicKey" do
-		it "#Should params not nil" do
+		it "should send error if the params are nil" do
 			a = nil	
   			keyManager = KeysManager.new
   			publicKey = keyManager.create_PublicKey(a)

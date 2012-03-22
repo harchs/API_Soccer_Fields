@@ -1,3 +1,4 @@
+require 'Time_Local'
 class AuthenticateController < ApplicationController
 	def auth
 		public_key = params[:public_key]
@@ -7,7 +8,11 @@ class AuthenticateController < ApplicationController
 
 		@private_key = keys_app.private_key
 
-		#Auth_manager
+		time = Time_Local.new
+		@t = time.now
+
+		
+
 	end
 
 	
