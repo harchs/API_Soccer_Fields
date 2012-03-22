@@ -21,6 +21,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem "rspec", "~> 2.9.0"
+gem "rspec-rails"
+gem 'simplecov', :require => false, :group => :test
+gem "encryptor", "~> 1.1.3"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
