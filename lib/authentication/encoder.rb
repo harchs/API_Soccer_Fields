@@ -1,0 +1,3 @@
+class encoder
+	
+end 
