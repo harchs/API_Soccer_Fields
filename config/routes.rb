@@ -1,4 +1,10 @@
 APISoccerField::Application.routes.draw do
+ 
+
+  get "key/create"
+
+  get "key/destroy"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
