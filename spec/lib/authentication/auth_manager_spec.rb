@@ -3,7 +3,7 @@ require "spec_helper"
 require "KeysManager"
 
 describe Auth_manager do 
-	describe "text auth" do
+	describe "test auth" do
 		it " #Should validate the hash generated is the same as the hash send by the client" do
 			#from the BD
 			public_key_int="abcd"
