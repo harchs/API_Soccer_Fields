@@ -1,4 +1,6 @@
 require 'Time_Local'
+require 'KeysManager'
+require 'auth_manager'
 class AuthenticateController < ApplicationController
 	def auth
 		public_key = params[:public_key]
@@ -9,7 +11,13 @@ class AuthenticateController < ApplicationController
 		@private_key = keys_app.private_key
 
 		time = Time_Local.new
-		@t = time.now
+		time_now_trunk_hour = time.nowTrunkToHours
+		p "time:"+time_now_trunk_hour
+
+		paramters = [time_now_trunk_hour, @private_key, public_key]
+
+		auditor = Auth_manager.new(public_key, @private_key, KeysManager.new ) 
+		@result = auditor.authenticate(public_key, hash_auth, paramters )
 
 		
 
