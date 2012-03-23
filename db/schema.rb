@@ -11,18 +11,39 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20120322180023) do
+ActiveRecord::Schema.define(:version => 20120323181951) do
+
+  create_table "apps", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "key_apps", :force => true do |t|
     t.string   "public_key"
     t.string   "private_key"
-    t.string   "app_name"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "app_id"
   end
-=======
-ActiveRecord::Schema.define(:version => 0) do
->>>>>>> e1e56bc8d3034ebad6ee90fb27756f2588fb4a92
+
+  create_table "user_keys", :force => true do |t|
+    t.string   "provider"
+    t.string   "auth"
+    t.string   "credential"
+    t.string   "app_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "nick_name"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end
