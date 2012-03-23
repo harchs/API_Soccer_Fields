@@ -1,6 +1,12 @@
 APISoccerField::Application.routes.draw do
  
 
+  get "user/sign_up"
+
+  get "user/sign_in"
+
+  get "user/sign_out"
+
   get "key/create"
 
   get "key/destroy"
