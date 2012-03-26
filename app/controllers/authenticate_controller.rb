@@ -1,4 +1,4 @@
-require 'Time_Local'
+
 require 'KeysManager'
 require 'auth_manager'
 class AuthenticateController < ApplicationController
@@ -20,7 +20,5 @@ class AuthenticateController < ApplicationController
 		auditor = Auth_manager.new(public_key, @private_key, KeysManager.new ) 
 		@result = auditor.authenticate(public_key, hash_auth, paramters )
 
-		keyManager = KeysManager.new
-		@hash_authR = keyManager.secure_digest(@t,@private_key,public_key)
 	end
 end

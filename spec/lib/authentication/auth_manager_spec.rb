@@ -17,11 +17,18 @@ describe Auth_manager do
 			public_key_ext=public_key_int
 			private_key_ext=private_key_int
 			params['public_key']=public_key_ext
+			#add options to validat with date
+			params[:valid_date]=true
+			options = Hash.new
+			options[:valid_date]==params[:valid_date]
+			time = Time_Local.new
+			params['date_trunk_hour']=time.nowTrunkToHours
+			
 			#generate hash that sould come from the client
 			key_manager=KeysManager.new
 			hash_ext=key_manager.secure_digest(private_key_ext, params)
 			#validation of the hash
-			result = auditor.authenticate(public_key_ext, hash_ext, params, nil)
+			result = auditor.authenticate(public_key_ext, hash_ext, params, options)
 			result.should == true	
 		end 
 	end
