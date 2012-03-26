@@ -1,6 +1,6 @@
 APISoccerField::Application.routes.draw do
  
-  match  "user/sign_out" => 'User#sign_in'
+  match  "user/sign_up" => 'User#sign_in'
 
   get "user/sign_in"
 
