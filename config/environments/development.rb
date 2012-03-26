@@ -34,4 +34,7 @@ APISoccerField::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  #shows "p" on shell
+  $stdout.sync= true
 end

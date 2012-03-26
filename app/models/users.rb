@@ -6,6 +6,14 @@ class Users < ActiveRecord::Base
 	validates :last_name, :presence => true
 	validates :email, :format => { :with => /((\S+)@(\S{3}[a-zA-z0-9)]\S*))/, :message => "not valid" } 
 
+	acts_as_api
+
+	api_accessible :sign_in do |template|
+	    template.add :e_mail
+	    template.add :user_keys
+		
+	end
+
 	def self.save_user(params)
 		create! do |user|
 			user.first_name = params["first_name"]
@@ -15,5 +23,4 @@ class Users < ActiveRecord::Base
 		end
 	end
 
-	
 end

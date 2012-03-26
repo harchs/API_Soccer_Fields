@@ -5,6 +5,7 @@ class KeyApp < ActiveRecord::Base
 			app.public_key = params["public_key"]
 			app.private_key = params["private_key"]
 			app.app_id = params["app_id"]
+			
 		end
 	end
 end

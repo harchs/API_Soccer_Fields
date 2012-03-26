@@ -1,4 +1,11 @@
 class UserKeys < ActiveRecord::Base
+
+	acts_as_api
+
+	api_accessible :sign_in do |template|
+		template.add :uid
+	    template.add :credential
+	end
 	belongs_to :users
 
 	validates :uid, :token, :app_id, :user_id, :presence => true
@@ -19,6 +26,5 @@ class UserKeys < ActiveRecord::Base
   	def save_credential(credential)
     	self.update_attribute(:credential, credential)
   	end
-
 
 end
