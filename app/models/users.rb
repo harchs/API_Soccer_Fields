@@ -5,9 +5,8 @@ class Users < ActiveRecord::Base
 	acts_as_api
 
 	api_accessible :sign_in do |template|
-	    template.add :first_name
-		template.add :last_name
-		template.add :nick_name
+	    template.add :e_mail
+	    template.add :user_keys
 		
 	end
 	def self.save_user(params)

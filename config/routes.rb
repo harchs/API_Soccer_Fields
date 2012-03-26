@@ -2,13 +2,21 @@ APISoccerField::Application.routes.draw do
  
   match  "user/sign_up" => 'User#sign_in'
 
-  get "user/sign_in"
+  
 
   get "user/sign_out"
 
   get "key/create"
 
   get "key/destroy"
+
+  namespace :api, :defaults => {:format => "json"} do
+    resources :user do
+      collection do
+        post "sign_in"
+      end
+     end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

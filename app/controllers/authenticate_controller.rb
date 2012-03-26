@@ -1,7 +1,7 @@
 
 require 'KeysManager'
 require 'auth_manager'
-class AuthenticateController < ApplicationController
+class AuthenticateController < Api::V1::ApiController
 	#http://prueba.local:3000/authenticate?public_key='your public key'&hash_auth='your private key encoded'
 	def auth
 		public_key = params[:public_key]
