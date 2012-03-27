@@ -21,6 +21,11 @@ class Api::ApiController < ApplicationController
     render_response("API_PARAMS_ERROR", exception.message, {:status => 'failure'})
   end
 
+  rescue_from MultiJson::DecodeError do |exception|
+    render :text => "!!!!!!!!!!!"
+    #render_response("API_PARAMS_ERROR", exception.message, {:status => 'failure'})
+  end
+
 
   protected
 
@@ -72,11 +77,10 @@ class Api::ApiController < ApplicationController
          render_response("API_PARAMS_ERROR", nil, {:status => 'failure', :aditional_data => {:errors => "You must provide the user data."}}) and return
          # render_response("API_PARAMS_ERROR", nil, {:status => 'failure', :aditional_data => {:errors => "You must provide auth data"}}) and return
       end
-      public_key = params[:request][:app][:public_key]
-      hash_auth = params[:request][:app][:hash_auth]
+      
 
       #gets private_token form the bd
-      keys_app = KeyApp.find_by_public_key(public_key)
+      keys_app = KeyApp.find_by_public_key(params[:request][:app][:public_key])
       if !keys_app.blank?
         if auth_hashes_match?(keys_app)
           true
@@ -93,6 +97,8 @@ class Api::ApiController < ApplicationController
     end
 
     def auth_hashes_match? (keys_app)
+        public_key = params[:request][:app][:public_key]
+        hash_auth = params[:request][:app][:hash_auth]
         private_key = keys_app.private_key
         # define options for the auth
         options = Hash.new 

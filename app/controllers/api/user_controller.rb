@@ -8,8 +8,8 @@ class Api::UserController < Api::ApiController
       render_response("API_PARAMS_ERROR", nil, {:status => 'failure', :aditional_data => {:errors => "You must provide the user data."}}) and return
     end
     #http://prueba.local:3000/user/sign_up?first_name="first_name_user"&last_name="last_name_user"&nick_name="nick_name_user"&email="email_user"&uid=72357278&token=123456789
+    user = User.find_by_email(params[:request][:user][:email]) || User.new(params[:request][:user]).save
 
-    user = User.find_by_email(hash_user['email']) || User.save_user(params[:request][:user])
     if user
       user_auth = Hash.new(0)
       user_auth['uid']=params[:request][:user][:user_keys][:uid]
