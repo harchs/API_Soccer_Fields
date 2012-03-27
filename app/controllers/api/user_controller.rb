@@ -10,6 +10,7 @@ class Api::UserController < Api::ApiController
     #http://prueba.local:3000/user/sign_up?first_name="first_name_user"&last_name="last_name_user"&nick_name="nick_name_user"&email="email_user"&uid=72357278&token=123456789
 
     user = Users.find_by_email(hash_user['email']) || Users.save_user(params[:request][:user])
+    
     if user
       user_auth = Hash.new(0)
       user_auth['uid']=params[:request][:user][:user_keys][:uid]
