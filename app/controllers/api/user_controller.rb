@@ -42,6 +42,9 @@ class Api::UserController < Api::ApiController
     return params[:request] && params[:request][:user] && params[:request][:user][:email] && params[:request][:user][:user_keys] 
   end 
 
+  def show
+  end
+
   private
     def Time
       time = Time_Local.new

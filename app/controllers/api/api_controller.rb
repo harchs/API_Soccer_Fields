@@ -69,7 +69,7 @@ class Api::ApiController < ApplicationController
     # Checks wheter the received api_auth_token is valid.
     def authenticate_application
       unless has_valid_parameters?
-         render_response("API_PARAMS_ERROR", nil, {:status => 'failure', :aditional_data => {:errors => "You must provide auth data"}}) and return
+         render_response("API_PARAMS_ERROR", nil, {:status => 'failure', :aditional_data => {:errors => params}}) and return
          # render_response("API_PARAMS_ERROR", nil, {:status => 'failure', :aditional_data => {:errors => "You must provide auth data"}}) and return
       end
       public_key = params[:request][:app][:public_key]
