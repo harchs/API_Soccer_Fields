@@ -16,6 +16,12 @@ APISoccerField::Application.routes.draw do
         post "sign_in"
       end
      end
+
+     resources :venues do
+      collection do
+        match "find"
+      end
+     end
   end
 
   # The priority is based upon order of creation:

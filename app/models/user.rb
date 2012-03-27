@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	has_many :user_keys
+	has_many :user_key
 
 	validates :first_name, :presence => true
 	validates :last_name, :presence => true
@@ -8,8 +8,9 @@ class User < ActiveRecord::Base
 	acts_as_api
 
 	api_accessible :sign_in do |template|
-	    template.add :e_mail
-	    template.add :user_keys
+	    template.add :email
+	    template.add :first_name
+	    template.add :last_name
 		
 	end
 
