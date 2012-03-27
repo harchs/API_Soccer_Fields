@@ -8,6 +8,8 @@ class UserKeys < ActiveRecord::Base
 	end
 	belongs_to :users
 
+	validates :uid, :token, :app_id, :user_id, :presence => true
+
 	def self.save_keys(params)
 		create! do |user|
 			user.uid = params["uid"]
