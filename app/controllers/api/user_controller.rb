@@ -9,20 +9,14 @@ class Api::UserController < Api::ApiController
     end
     #http://prueba.local:3000/user/sign_up?first_name="first_name_user"&last_name="last_name_user"&nick_name="nick_name_user"&email="email_user"&uid=72357278&token=123456789
 
-    hash_user = Hash.new(0)
-    hash_user['first_name']=params[:request][:user][:first_name]
-    hash_user['last_name']=params[:request][:user] [:last_name]
-    hash_user['nick_name']=params[:request][:user] [:nick_name]
-    hash_user['email']=params[:request][:user][:email]
-
-    user = Users.find_by_email(hash_user['email']) || Users.save_user(hash_user)
+    user = Users.find_by_email(hash_user['email']) || Users.save_user(params[:request][:user])
     if user
-      hash_user_auth = Hash.new(0)
-      hash_user_auth['uid']=params[:request][:user][:user_keys][:uid]
-      hash_user_auth['token']=params[:request][:user][:user_keys][:token]
-      hash_user_auth['app_id']=app_id
-      hash_user_auth['user_id']=user.id
-      user_keys =  user.user_keys.blank? || user.user_keys.save_keys(hash_user_auth)
+      user_auth = Hash.new(0)
+      user_auth['uid']=params[:request][:user][:user_keys][:uid]
+      user_auth['token']=params[:request][:user][:user_keys][:token]
+      user_auth['app_id']=app_id
+      user_auth['user_id']=user.id
+      user_keys =  user.user_keys.blank? || user.user_keys.save_keys(user_auth)
 
       if user_keys.credential.blank?
         keyManager = KeysManager.new
