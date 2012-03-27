@@ -1,8 +1,8 @@
 class RemoveProviderAuthFromUserKeys < ActiveRecord::Migration
   def up
-    remove_column :user_keys, :provider
-        remove_column :user_keys, :auth
-        remove_column :user_keys, :user_keys
+        # remove_column :user_keys, :provider
+        # remove_column :user_keys, :auth
+        # remove_column :user_keys, :user_keys
       end
 
   def down
