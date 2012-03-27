@@ -68,8 +68,8 @@ class Api::ApiController < ApplicationController
   private
     # Checks wheter the received api_auth_token is valid.
     def authenticate_application
-      unless has_valid_parameters?
-         render_response("API_PARAMS_ERROR", nil, {:status => 'failure', :aditional_data => {:errors => params}}) and return
+      if has_missing_params?
+         render_response("API_PARAMS_ERROR", nil, {:status => 'failure', :aditional_data => {:errors => "You must provide the user data."}}) and return
          # render_response("API_PARAMS_ERROR", nil, {:status => 'failure', :aditional_data => {:errors => "You must provide auth data"}}) and return
       end
       public_key = params[:request][:app][:public_key]
@@ -77,28 +77,32 @@ class Api::ApiController < ApplicationController
 
       #gets private_token form the bd
       keys_app = KeyApp.find_by_public_key(public_key)
-      app_id=keys_app.app_id
-      private_key = keys_app.private_key
-      # p "time:"+time_now_trunk_hour
-
-      options = Hash.new 
-      options[:valid_date]= params[:request][:app][:valid_date]
-
-      #define the params to generatwe de secret_token
-      params_auth= [time_now_trunk_hour, private_key, public_key]
-
-      auditor = Auth_manager.new(public_key, private_key, KeysManager.new ) 
-      result = auditor.authenticate(public_key, hash_auth, params_auth, options )
-      if result
-        true
+      if !keys_app.blank?
+        if auth_hashes_match?(keys_app)
+          true
+        else
+          render_response("API_401", nil, {:status => "failure", :aditional_data => {:errors => "Auth hashes mismatch."}})
+        end
       else
-        render_response("API_401", nil, {:status => "failure"})
-      end
-
+        render_response("API_401", nil, {:status => "failure", :aditional_data => {:errors => "Public Key is invalid"}})
+      end 
     end
 
-    def has_valid_parameters?
-      params['request'] && params['request']['app']  
+    def has_missing_params?
+      params[:request].blank? || params[:request][:app].blank? 
+    end
+
+    def auth_hashes_match? (keys_app)
+        private_key = keys_app.private_key
+        # define options for the auth
+        options = Hash.new 
+        options[:valid_date]= params[:request][:app][:valid_date]
+
+        #define the params to generatwe de secret_token
+        params_auth= [private_key, public_key]
+
+        auditor = Auth_manager.new(public_key, private_key, KeysManager.new ) 
+        result = auditor.authenticate(public_key, hash_auth, params_auth, options )
     end
    
 
