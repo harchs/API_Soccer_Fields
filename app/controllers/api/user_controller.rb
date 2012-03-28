@@ -1,4 +1,62 @@
+=begin apidoc
+  url:: /user/sign_in
+  method:: GET
+  access:: RESTRICTED by authentication of the app
+  return:: [JSON] - list of venues objects
 
+  param:: firs_name: First name of the user 
+  param:: last_name: Lasta name of the user
+  param:: email: Email of the user
+  param:: nick_name: [Optional] Nick name of the user
+  param:: uid: uid returned by the outh authentication when this sign in diferentes app (facebook, twitter, ...)
+  param:: token: token returned by the outh authentication when this sign in diferentes app (facebook, twitter, ...)
+  param:: auth_code: Code generated with private key and modifiers
+  param:: valide_date: [Optional] Specifies whether or not to consider the date to generate the auth_code "aaaa/mm/dd hh"
+  param:: modifiers: Modifiers used for encode the private key of the app "modifiers=m1,m2,...mn"
+
+  output:: json
+    {
+      "status": "success",
+      "code": "API_SUCCESS",
+      "message": "The operation was successful",
+      "errors": "",
+      "data": {
+          "response": {
+              "email": "leonardo.sanclemente@koombea.com",
+              "first_name": "leo",
+              "last_name": "san",
+              "user_key": [{
+                  "uid": "321323111",
+                  "credential": "e2b8bbed163dc2770c49728342163128cb1eb8b9"
+              }]
+          }
+      }
+  }
+  ::output-end::
+=end
+
+=begin apidoc
+  url:: /user/sign_out
+  method:: GET
+  access:: RESTRICTED by authentication of the app
+  return:: [JSON] - list of venues objects
+
+  param:: credential: Credential asigned to user
+  param:: auth_code: Code generated with private key and modifiers
+  param:: valide_date: [Optional] Specifies whether or not to consider the date to generate the auth_code "aaaa/mm/dd hh"
+  param:: modifiers: Modifiers used for encode the private key of the app "modifiers=m1,m2,...mn"
+
+  output:: json
+    {
+      "status": "success",
+      "code": "API_SUCCESS",
+      "message": "The operation was successful",
+      "errors": "",
+      "data": {
+      }
+  }
+  ::output-end::
+=end
 require 'KeysManager'
 require 'Time_Local'
 class Api::UserController < Api::ApiController

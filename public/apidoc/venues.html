@@ -78,7 +78,7 @@
   <h2><span id='http_verb'>GET</span>/venues/find</h2>
   
   
-    <strong>Access:</strong> FREE<br />
+    <strong>Access:</strong> RESTRICTED by authentication of the app<br />
   
 
   
@@ -105,28 +105,31 @@
         
         <div class="active" id='json_1'>
           <pre class="prettyprint" >	{
-		&quot;venues&quot;:[
-			{ 
-				&quot;name&quot;:&quot;La Bombonera&quot;,
-				&quot;location&quot;:{
-					&quot;address&quot;:&quot;Kra. 46 cll 72&quot;,
-				&quot;distance&quot;:133
-				},
-				&quot;contact&quot;:{
-				&quot;phone&quot;:&quot;&quot;
-				}
-			},
-			{ 
-				&quot;name&quot;:&quot;Centro Recreacional Parque del Sol&quot;,
-				&quot;location&quot;:{
-					&quot;address&quot;:&quot;Cra 39 No. 73 - 105,
-				&quot;distance&quot;:1214
-				},
-				&quot;contact&quot;:{
-				&quot;phone&quot;:&quot;0353457293&quot;
-				}
-			}
-		]
+	    &quot;status&quot;: &quot;success&quot;,
+	    &quot;code&quot;: &quot;API_SUCCESS&quot;,
+	    &quot;message&quot;: &quot;The operation was successful&quot;,
+	    &quot;errors&quot;: &quot;&quot;,
+	    &quot;data&quot;: {
+	        &quot;venues&quot;: [{
+	            &quot;name&quot;: &quot;La Bombonera&quot;,
+	            &quot;location&quot;: {
+	                &quot;address&quot;: &quot;Kra. 46 cll 72&quot;,
+	                &quot;distance&quot;: 133
+	            },
+	            &quot;contact&quot;: {
+	                &quot;phone&quot;: &quot;&quot;
+	            }
+	        }, {
+	            &quot;name&quot;: &quot;Estadio Romelio Mart\u00ednez&quot;,
+	            &quot;location&quot;: {
+	                &quot;address&quot;: &quot;Calle 72 # 46 Avda. Olaya Herrera con 72&quot;,
+	                &quot;distance&quot;: 936
+	            },
+	            &quot;contact&quot;: {
+	                &quot;phone&quot;: &quot;&quot;
+	            }
+	        }]
+	    }
 	}
 </pre>
         </div>

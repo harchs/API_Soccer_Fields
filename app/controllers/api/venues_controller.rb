@@ -1,7 +1,7 @@
 =begin apidoc
 	url:: /venues/find
 	method:: GET
-	access:: FREE
+	access:: RESTRICTED by authentication of the app
 	return:: [JSON] - list of venues objects
 
 	param:: ll: String with latitude and longitude of geolocation of user "ll=10.43223,-74.121222"
@@ -14,31 +14,36 @@
 
 	output:: json
 		{
- 		"venues":[
- 			{ 
- 				"name":"La Bombonera",
- 				"location":{
- 					"address":"Kra. 46 cll 72",
-					"distance":133
- 				},
- 				"contact":{
-					"phone":""
- 				}
- 			},
- 			{ 
- 				"name":"Centro Recreacional Parque del Sol",
- 				"location":{
- 					"address":"Cra 39 No. 73 - 105,
-					"distance":1214
- 				},
- 				"contact":{
-					"phone":"0353457293"
- 				}
- 			}
- 		]
- 	}
+		    "status": "success",
+		    "code": "API_SUCCESS",
+		    "message": "The operation was successful",
+		    "errors": "",
+		    "data": {
+		        "venues": [{
+		            "name": "La Bombonera",
+		            "location": {
+		                "address": "Kra. 46 cll 72",
+		                "distance": 133
+		            },
+		            "contact": {
+		                "phone": ""
+		            }
+		        }, {
+		            "name": "Estadio Romelio Mart\u00ednez",
+		            "location": {
+		                "address": "Calle 72 # 46 Avda. Olaya Herrera con 72",
+		                "distance": 936
+		            },
+		            "contact": {
+		                "phone": ""
+		            }
+		        }]
+		    }
+		}
  	::output-end::
 =end
+
+
 
 class Api::VenuesController < ApplicationController
 	
