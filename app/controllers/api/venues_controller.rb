@@ -1,7 +1,7 @@
 =begin apidoc
 	url:: /venues/find
 	method:: GET
-	access:: RESTRICTED by Auth params and User Credential
+	access:: FREE
 	return:: [JSON] - list of venues objects
 
 	param:: ll: String with latitude and longitude of geolocation of user "ll=10.43223,-74.121222"
