@@ -6,7 +6,6 @@ class Api::ApiController < ApplicationController
 
   attr_accessor :app_id 
 
-  skip_before_filter :verify_authenticity_token
 
   # before_filter :authenticate_application
   # before_filter :authenticate_user_token
@@ -22,9 +21,6 @@ class Api::ApiController < ApplicationController
     render_response("API_PARAMS_ERROR", exception.message, {:status => 'failure'})
   end
 
-  rescue_from "MultiJson::DecodeError" do |exception|
-    render_response("API_PARAMS_ERROR", exception.message, {:status => 'failure'})
-  end
 
 
   # protected
