@@ -1,3 +1,4 @@
+
 require 'KeysManager'
 require 'Time_Local'
 class Api::UserController < Api::ApiController
@@ -8,11 +9,11 @@ class Api::UserController < Api::ApiController
       render_response("API_PARAMS_ERROR", nil, {:status => 'failure', :aditional_data => {:errors => "You must provide the user data."}}) and return
     end
     #http://prueba.local:3000/user/sign_up?first_name="first_name_user"&last_name="last_name_user"&nick_name="nick_name_user"&email="email_user"&uid=72357278&token=123456789
-    user = User.find_by_email(params[:user_email]) || create_new_user_instance
+    user = User.find_by_email(params[:email]) || create_new_user_instance
     # if user  exist or if didnt have validations problem in the model
     if user && user.errors.full_messages.blank?
       get_user_keys(user)
-      render_response("API_SUCCESS", user.as_api_response(:sign_in), {:sign_in => :user})
+      render_response("API_SUCCESS", user.as_api_response(:sign_in), {:data_root => :user})
     else
       if user.errors.full_messages.blank?  
         render_response("API_NO_USER_ERROR", nil, {:aditional_data => {:errors => "It looks like the user related to that e-mail does not exist, try again  with another."}, :status => 'failure'})
@@ -57,15 +58,15 @@ class Api::UserController < Api::ApiController
 
     def create_new_user_instance
       user = User.create({
-          :first_name=>params[:user_first_name],
-          :last_name=>params[:user_last_name],
-          :nick_name=>params[:user_nick_name],
-          :email=>params[:user_email]
+          :first_name=>params[:first_name],
+          :last_name=>params[:last_name],
+          :nick_name=>params[:nick_name],
+          :email=>params[:email]
         }) 
     end
 
     def has_valid_parameters?
-      return  params[:user_email] && params[:user_uid] && params[:user_uid]
+      return  params[:email] && params[:user_uid] && params[:user_token]
     end 
 
 

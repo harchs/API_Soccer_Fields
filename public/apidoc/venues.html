@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>venues</title>
+    <link rel="stylesheet" href="/assets/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="http://http://twitter.github.com/bootstrap/assets/js/bootstrap-tab.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(function() {
+        $('.tabs').tabs();
+      });
+    </script>
+
+    <style>
+      body {
+        line-height: 1.5em;
+        color:#484848;
+      }
+
+      ul, ol {
+        margin-bottom: 0.8em;
+      }
+
+      li {
+        padding-left: 10px;
+        margin-right: 10px;
+      }
+
+      #resources {
+
+      }
+
+      h1, h2, h3 {
+        padding-top: 8px;
+        padding-bottom: 2px;
+      }
+
+      #method {
+        padding: 15px 30px;
+        border-top:1px solid #ddd;
+      }
+
+      #http_verb {
+        color:#ff6600;
+        width:200px;
+        margin-right:20px;'
+      }
+
+      .description{
+        font-size: 1.4em;
+        color:#262626;
+      }
+      .code {
+          font-family: monospace;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="content">
+      <div id="navigation">
+        <ul class="main">
+          <li><a href="/apidoc/main.html">&laquo; Back to index</a></li>
+        </ul>
+      </div>
+
+      <hr />
+
+      
+
+      
+        <div id="method_1">
+  
+  
+  <p class='description'><strong>Description:</strong> </p>
+
+  <h2><span id='http_verb'>GET</span>/venues/find</h2>
+  
+  
+    <strong>Access:</strong> FREE<br />
+  
+
+  
+    <strong>Return:</strong>
+    [JSON] - list of venues objects
+    <br />
+  
+
+    
+    <strong>Parameters:</strong>
+    <ul>
+      <li>ll: String with latitude and longitude of geolocation of user "ll=10.43223,-74.121222"</li><li>radius: Limit results to venues within this many meters of the specified location</li><li>public_key: Public key of the app</li><li>auth_code: Code generated with private key and modifiers</li><li>valide_date: [Optional] Specifies whether or not to consider the date to generate the auth_code "aaaa/mm/dd hh"</li><li>modifiers: Modifiers used for encode the private key of the app "modifiers=m1,m2,...mn"</li>
+    </ul>
+  
+
+  
+    <ul class="tabs">
+      
+        <li class="active"><a href='#json_1'>json</a></li>
+      
+    </ul>
+    <div class="pill-content">
+      
+        
+        <div class="active" id='json_1'>
+          <pre class="prettyprint" >	{
+		&quot;venues&quot;:[
+			{ 
+				&quot;name&quot;:&quot;La Bombonera&quot;,
+				&quot;location&quot;:{
+					&quot;address&quot;:&quot;Kra. 46 cll 72&quot;,
+				&quot;distance&quot;:133
+				},
+				&quot;contact&quot;:{
+				&quot;phone&quot;:&quot;&quot;
+				}
+			},
+			{ 
+				&quot;name&quot;:&quot;Centro Recreacional Parque del Sol&quot;,
+				&quot;location&quot;:{
+					&quot;address&quot;:&quot;Cra 39 No. 73 - 105,
+				&quot;distance&quot;:1214
+				},
+				&quot;contact&quot;:{
+				&quot;phone&quot;:&quot;0353457293&quot;
+				}
+			}
+		]
+	}
+</pre>
+        </div>
+      
+    </div>
+    <br />
+  
+
+  
+
+  
+
+</div>
+
+      
+    </div>
+  </body>
+</html>
