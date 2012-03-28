@@ -1,4 +1,5 @@
 require 'auth_manager'
+require 'KeysManager'
 class Api::ApiController < ApplicationController
   # You can disable csrf protection on controller-by-controller basis.
   # In all the api calls we do not want to protect from forgery.
@@ -50,9 +51,9 @@ class Api::ApiController < ApplicationController
   def authenticate_user_token
     render_response("USER_CREDENTIAL_REQUIRED", nil, {:status => 'failure'}) and return unless params[:user_credential]
     #replace with authetication 
-    user = User_keys.find_by_credential(params[:user_credential]).user
+    user = UserKey.find_by_credential(params[:user_credential]).user
     if user
-      sign_in(user) and return
+      true
     else
       render_response("USER_CREDENTIAL_INVALID", nil, {:status => 'failure'})
     end
@@ -91,12 +92,12 @@ class Api::ApiController < ApplicationController
     end
 
     def has_missing_params?
-      params[:public_key].blank? || params[:hash_auth].blank? 
+      params[:public_key].blank? || params[:auth_code].blank? 
     end
 
     def auth_hashes_match? (keys_app)
         public_key = params[:public_key]
-        hash_auth = params[:hash_auth]
+        hash_auth = params[:auth_code]
         private_key = keys_app.private_key
         # define options for the auth
         options = Hash.new 

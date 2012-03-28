@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 	    template.add :email
 	    template.add :first_name
 	    template.add :last_name
+	    template.add :user_key
 		
 	end
 

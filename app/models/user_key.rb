@@ -7,7 +7,7 @@ class UserKey < ActiveRecord::Base
 	    template.add :credential
 	end
 
-	belongs_to :users
+	belongs_to :user
 
 	validates :uid, :token, :app_id, :user_id, :presence => true
 
@@ -16,7 +16,7 @@ class UserKey < ActiveRecord::Base
 			:uid => user_auth_params[:uid],
 			:token => user_auth_params[:token],
 			:app_id => user_auth_params[:app_id],
-			:user_id => user_auth_params[:user_id]
+			:user => user_auth_params[:user]
 			})
 	end
 

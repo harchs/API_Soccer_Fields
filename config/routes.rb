@@ -19,7 +19,7 @@ APISoccerField::Application.routes.draw do
 
      resources :venues do
       collection do
-        match "find"
+        match "find" 
       end
      end
   end

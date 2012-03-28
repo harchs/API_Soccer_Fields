@@ -1,8 +1,10 @@
-class Api::VenuesController < ApplicationController
+class Api::VenuesController < Api::ApiController
+
+	# before_filter :authenticate_user_token
+
 	def find
 		
 		markups=[]	
-
 		venues=Foursquare_client.get_venues(right_params_for_search_venues(params[:ll],params[:radius])).groups[0].items 
 		# raise venues.to_s
 		venues.each do |venue|
@@ -46,7 +48,6 @@ class Api::VenuesController < ApplicationController
 		def right_params_for_search_venues(ll,radius)
 			params_for_search_venues = Hash.new(0)
 			params_for_search_venues[:ll] = ll
-			p radius.blank?
 			unless radius.blank?
 				params_for_search_venues[:radius] = radius.to_i
 			end

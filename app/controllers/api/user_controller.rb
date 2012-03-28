@@ -35,6 +35,7 @@ class Api::UserController < Api::ApiController
   private
 
     def get_user_keys(user)
+      
       user_auth = Hash.new
       user_auth[:uid]=params[:user_uid]
       user_auth[:token]=params[:user_token]
@@ -61,8 +62,6 @@ class Api::UserController < Api::ApiController
           :nick_name=>params[:user_nick_name],
           :email=>params[:user_email]
         }) 
-      p "any errors:"+user.errors.full_messages.blank?.to_s
-      user
     end
 
     def has_valid_parameters?
