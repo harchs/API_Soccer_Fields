@@ -48,6 +48,8 @@ gem "rspec-rails", "~> 2.9.0"
 # coberture
 gem "simplecov", "~> 0.6.1", :require => false, :group => :test
 
+gem "heroku"
+
 
 
 
