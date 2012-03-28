@@ -82,6 +82,9 @@ class Api::UserController < Api::ApiController
   end
 
   def sign_out
+    user_key = UserKey.find_by_credential(params[:credential])
+    user_key.disable_credential!
+    render_response("API_SUCCESS", nil, nil)
   end
 
   def show

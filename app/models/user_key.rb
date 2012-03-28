@@ -20,5 +20,9 @@ class UserKey < ActiveRecord::Base
 			})
 	end
 
+	def disable_credential!
+    	self.update_attribute(:credential, "")
+  	end
+
 
 end
