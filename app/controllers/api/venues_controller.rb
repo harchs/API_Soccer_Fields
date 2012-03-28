@@ -1,4 +1,47 @@
+=begin apidoc
+	url:: /venues/find
+	method:: GET
+	access:: RESTRICTED by Auth params and User Credential
+	return:: [JSON] - list of venues objects
+
+	param:: ll: String with latitude and longitude of geolocation of user "ll=10.43223,-74.121222"
+	param:: radius: Limit results to venues within this many meters of the specified location
+	param:: public_key: Public key of the app
+	param:: auth_code: Code generated with private key and modifiers
+	param:: valide_date: [Optional] Specifies whether or not to consider the date to generate the auth_code "aaaa/mm/dd hh"
+	param:: modifiers: Modifiers used for encode the private key of the app "modifiers=m1,m2,...mn"
+
+
+	output:: json
+		{
+ 		"venues":[
+ 			{ 
+ 				"name":"La Bombonera",
+ 				"location":{
+ 					"address":"Kra. 46 cll 72",
+					"distance":133
+ 				},
+ 				"contact":{
+					"phone":""
+ 				}
+ 			},
+ 			{ 
+ 				"name":"Centro Recreacional Parque del Sol",
+ 				"location":{
+ 					"address":"Cra 39 No. 73 - 105,
+					"distance":1214
+ 				},
+ 				"contact":{
+					"phone":"0353457293"
+ 				}
+ 			}
+ 		]
+ 	}
+ 	::output-end::
+=end
+
 class Api::VenuesController < ApplicationController
+	
 	def find
 		
 		markups=[]	

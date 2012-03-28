@@ -1,0 +1,3 @@
+venues:
+  location: "/api/"
+  controller_name: "api/venues_controller.rb"
