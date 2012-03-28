@@ -51,9 +51,7 @@
       "status": "success",
       "code": "API_SUCCESS",
       "message": "The operation was successful",
-      "errors": "",
-      "data": {
-      }
+      "errors": ""
   }
   ::output-end::
 =end
