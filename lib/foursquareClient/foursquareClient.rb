@@ -48,6 +48,10 @@ class FoursquareAdapter
 	end
 
 	def get_venues(options)
+		options[:categoryId] = CATEGORYID
+		# if options[:radius].blank?
+		# 	options.delete(:radius)
+		# end
 		@client_foursquare.search_venues(options)
 	end
 
@@ -60,7 +64,6 @@ class FoursquareAdapter
 	end
 
 	def get_venues_by_category(options)
-		options[:categoryId] = CATEGORYID
 		@client_foursquare.search_venues(options)
 	end
 

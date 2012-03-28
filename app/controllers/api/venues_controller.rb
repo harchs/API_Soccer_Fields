@@ -1,25 +1,55 @@
 class Api::VenuesController < ApplicationController
 	def find
-		if params[:lat]== nil || params[:lng]==nil
-			params[:lat]="10.98940092958238"
-			params[:lng]="-74.7999849319458"
-		end
-		p params.to_s
-		lat= params[:lat]
-		lng= params[:lng]
-
-		params[:ll]=lat+", "+lng
-		markups=[]
-
-		markups.push ({
-				"lat"=> lat, 
-				"lng"=> lng,
-				"image"=>"http://lh3.ggpht.com/avlZSzbiNYEFPmfN87cVzkmh9Z-2D53tHR8tBT7JhMPytvapW6wzOgrzuJpEtxqHXBoohR59SF9KaBNz=s48",
-				"tittle"=>"you are here",
-				"address"=>""	
-			})
 		
-		@venues=Foursquare_client.get_venues_by_category(params).groups[0].items 
+		markups=[]	
+
+		venues=Foursquare_client.get_venues(params_right_for_search_venues(params[:ll],params[:radius])).groups[0].items 
 		# raise venues.to_s
+		venues.each do |venue|
+
+			address = ""
+
+			if(venue.location.address!=nil)
+				address += venue.location.address
+			end
+
+			if(venue.location.crossStreet!=nil)
+				address += ' '+venue.location.crossStreet
+			end
+
+			phone = ""
+			unless venue.contact.phone.blank? 
+				phone = venue.contact.phone
+			end
+
+			markups.push ({
+				:name=>venue.name,
+				:location=>{
+					:address=>address,
+					:distance=>venue.location.distance
+				},
+				:contact=>{
+					:phone=>phone
+				}
+			})
+		end
+		json={"venues"=> markups}
+		results=JSON(json)
+
+	 	respond_to do |format|
+	       format.json { render :json => results }
+	   end
 		
+	end 
+
+	private 
+		def params_right_for_search_venues(ll,radius)
+			params_for_search_venues = Hash.new(0)
+			params_for_search_venues[:ll] = ll
+			p radius.blank?
+			unless radius.blank?
+				params_for_search_venues[:radius] = radius.to_i
+			end
+			params_for_search_venues
+		end
 end
