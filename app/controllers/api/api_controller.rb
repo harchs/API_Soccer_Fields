@@ -48,9 +48,9 @@ class Api::ApiController < ApplicationController
 
   # Checks wheter the received auth_token is valid.
   def authenticate_user_token
-    render_response("USER_CREDENTIAL_REQUIRED", nil, {:status => 'failure'}) and return unless params[:request][:user][:credential]
+    render_response("USER_CREDENTIAL_REQUIRED", nil, {:status => 'failure'}) and return unless params[:user_credential]
     #replace with authetication 
-    user = User_keys.find_by_credential(params[:request][:user][:credential]).user
+    user = User_keys.find_by_credential(params[:user_credential]).user
     if user
       sign_in(user) and return
     else
@@ -73,11 +73,11 @@ class Api::ApiController < ApplicationController
     # Checks wheter the received api_auth_token is valid.
     def authenticate_application
       if has_missing_params?
-         render_response("API_PARAMS_ERROR", nil, {:status => 'failure', :aditional_data => {:errors => "You must provide the user data."}}) and return
+         render_response("API_PARAMS_ERROR", nil, {:status => 'failure', :aditional_data => {:errors => "You must provide the auth data."}}) and return
          # render_response("API_PARAMS_ERROR", nil, {:status => 'failure', :aditional_data => {:errors => "You must provide auth data"}}) and return
       end
       #gets private_token form the bd
-      keys_app = KeyApp.find_by_public_key(params[:request][:app][:public_key])
+      keys_app = KeyApp.find_by_public_key(params[:public_key])
       unless keys_app.blank?
         if auth_hashes_match?(keys_app)
           app_id=keys_app.app_id
@@ -91,16 +91,16 @@ class Api::ApiController < ApplicationController
     end
 
     def has_missing_params?
-      params[:request].blank? || params[:request][:app].blank? 
+      params[:public_key].blank? || params[:hash_auth].blank? 
     end
 
     def auth_hashes_match? (keys_app)
-        public_key = params[:request][:app][:public_key]
-        hash_auth = params[:request][:app][:hash_auth]
+        public_key = params[:public_key]
+        hash_auth = params[:hash_auth]
         private_key = keys_app.private_key
         # define options for the auth
         options = Hash.new 
-        options[:valid_date]= params[:request][:app][:valid_date]
+        options[:valid_date]= params[:valid_date]
 
         #define the params to generatwe de secret_token
         params_auth= [private_key, public_key]

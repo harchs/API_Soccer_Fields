@@ -13,7 +13,7 @@ APISoccerField::Application.routes.draw do
   namespace :api, :defaults => {:format => "json"} do
     resources :user do
       collection do
-        post "sign_in"
+        match "sign_in"
       end
      end
 

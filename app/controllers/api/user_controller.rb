@@ -8,13 +8,17 @@ class Api::UserController < Api::ApiController
       render_response("API_PARAMS_ERROR", nil, {:status => 'failure', :aditional_data => {:errors => "You must provide the user data."}}) and return
     end
     #http://prueba.local:3000/user/sign_up?first_name="first_name_user"&last_name="last_name_user"&nick_name="nick_name_user"&email="email_user"&uid=72357278&token=123456789
-    user = User.find_by_email(params[:request][:user][:email]) || create_new_user_instance
-    # raise user.to_yaml
-    if user
+    user = User.find_by_email(params[:user_email]) || create_new_user_instance
+    # if user  exist or if didnt have validations problem in the model
+    if user && user.errors.full_messages.blank?
       get_user_keys(user)
       render_response("API_SUCCESS", user.as_api_response(:sign_in), {:sign_in => :user})
     else
-      render_response("API_NO_USER_ERROR", nil, {:aditional_data => {:errors => "It looks like the user related to that e-mail does not exist, try again  with another."}, :status => 'failure'})
+      if user.errors.full_messages.blank?  
+        render_response("API_NO_USER_ERROR", nil, {:aditional_data => {:errors => "It looks like the user related to that e-mail does not exist, try again  with another."}, :status => 'failure'})
+      else
+        render_response("API_NO_USER_ERROR", nil, {:aditional_data => {:errors => user.errors.full_messages.to_s}, :status => 'failure'})
+      end 
     end
   end
 
@@ -32,15 +36,15 @@ class Api::UserController < Api::ApiController
 
     def get_user_keys(user)
       user_auth = Hash.new
-      user_auth[:uid]=params[:request][:user][:user_keys][:uid]
-      user_auth[:token]=params[:request][:user][:user_keys][:token]
+      user_auth[:uid]=params[:user_uid]
+      user_auth[:token]=params[:user_token]
       user_auth[:app_id]=app_id
       user_auth[:user]=user
       user_key =  user.user_key.first || UserKey.new_instance(user_auth)
 
       if user_key.credential.blank?
         keyManager = KeysManager.new
-        credential=keyManager.secure_digest(params[:request][:user][:user_keys][:uid],params[:request][:user][:user_keys][:token],Time)
+        credential=keyManager.secure_digest(params[:user_uid],params[:user_token],Time)
         user_key.update_attribute(:credential, credential)
       end
     end
@@ -52,15 +56,17 @@ class Api::UserController < Api::ApiController
 
     def create_new_user_instance
       user = User.create({
-          :first_name=>params[:request][:user][:first_name],
-          :last_name=>params[:request][:user][:last_name],
-          :nick_name=>params[:request][:user][:nick_name],
-          :email=>params[:request][:user][:email]
+          :first_name=>params[:user_first_name],
+          :last_name=>params[:user_last_name],
+          :nick_name=>params[:user_nick_name],
+          :email=>params[:user_email]
         }) 
+      p "any errors:"+user.errors.full_messages.blank?.to_s
+      user
     end
 
     def has_valid_parameters?
-      return params[:request] && params[:request][:user] && params[:request][:user][:email] && params[:request][:user][:user_keys] 
+      return  params[:user_email] && params[:user_uid] && params[:user_uid]
     end 
 
 
