@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120327165448) do
+ActiveRecord::Schema.define(:version => 20120327212155) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -25,19 +25,19 @@ ActiveRecord::Schema.define(:version => 20120327165448) do
     t.string   "private_key"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.string   "app_id"
+    t.integer  "app_id"
   end
 
   create_table "user_keys", :force => true do |t|
     t.string   "provider"
     t.string   "auth"
     t.string   "credential"
-    t.string   "app_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "user_id"
     t.string   "uid"
     t.string   "token"
+    t.integer  "app_id"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|

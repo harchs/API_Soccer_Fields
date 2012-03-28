@@ -6,25 +6,19 @@ class UserKey < ActiveRecord::Base
 		template.add :uid
 	    template.add :credential
 	end
+
 	belongs_to :users
 
 	validates :uid, :token, :app_id, :user_id, :presence => true
 
-	def self.save(params)
-		create! do |user|
-			user.uid = params["uid"]
-			user.token = params["token"]
-			user.app_id = params["app_id"]
-			user.user_id = params["user_id"]
-		end
+	def self.new_instance(user_auth_params)
+		UserKey.create({
+			:uid => user_auth_params[:uid],
+			:token => user_auth_params[:token],
+			:app_id => user_auth_params[:app_id],
+			:user_id => user_auth_params[:user_id]
+			})
 	end
 
-	def self.disable_credential!
-    	self.update_attribute(:credential, "")
-  	end
-
-  	def save_credential(credential)
-    	self.update_attribute(:credential, credential)
-  	end
 
 end
