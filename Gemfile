@@ -12,7 +12,7 @@ gem "acts_as_api", "~> 0.3.11"
 # gem "google_static_maps_helper", "~> 1.3.5"
 gem 'foursquare2', '~> 1.3.6'	
 
-gem "rapi_doc", "~> 0.3.1"
+# gem "rapi_doc", "~> 0.3.1"
 
 # Gems used only for assets and not required
 # in production environments by default.
