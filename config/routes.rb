@@ -2,9 +2,6 @@ APISoccerField::Application.routes.draw do
  
   match  "user/sign_up" => 'User#sign_in'
 
-  
-
-
 
   get "key/create"
 
