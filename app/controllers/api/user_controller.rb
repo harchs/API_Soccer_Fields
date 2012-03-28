@@ -89,18 +89,16 @@ class Api::UserController < Api::ApiController
 
   
 
-  
-
   private
 
     def get_user_keys(user)
       
       user_auth = Hash.new
-      user_auth[:uid]=params[:user_uid]
+      user_auth[:uid]=
       user_auth[:token]=params[:user_token]
       user_auth[:app_id]=app_id
       user_auth[:user]=user
-      user_key =  user.user_key.first || UserKey.new_instance(user_auth)
+      user_key =  user.user_key.first || create_new_user_key_instance(user)
 
       if user_key.credential.blank?
         keyManager = KeysManager.new
@@ -113,15 +111,6 @@ class Api::UserController < Api::ApiController
       time = Time_Local.new
       t = time.now
     end 
-
-    def create_new_user_instance
-      user = User.create({
-          :first_name=>params[:first_name],
-          :last_name=>params[:last_name],
-          :nick_name=>params[:nick_name],
-          :email=>params[:email]
-        }) 
-    end
 
     def has_valid_parameters?
       return  params[:email] && params[:user_uid] && params[:user_token]

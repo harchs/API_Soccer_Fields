@@ -109,6 +109,24 @@ class Api::ApiController < ApplicationController
         auditor = Auth_manager.new(public_key, private_key, KeysManager.new ) 
         result = auditor.authenticate(public_key, hash_auth, params_auth, options )
     end
+
+    def create_new_user_instance
+      user = User.create({
+          :first_name=>params[:first_name],
+          :last_name=>params[:last_name],
+          :nick_name=>params[:nick_name],
+          :email=>params[:email]
+        }) 
+    end
+
+    def create_new_user_key_instance(user)
+      UserKey.create({
+      :uid => params[:user_uid],
+      :token => params[:user_token],
+      :app_id => app_id,
+      :user => user
+      })
+    end
    
 
 end
