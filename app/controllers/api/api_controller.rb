@@ -27,7 +27,7 @@ class Api::ApiController < ApplicationController
   end
 
 
-  protected
+  # protected
 
   # renders a response, using our Response object.
   def render_response(code, object, options = {})
@@ -70,7 +70,7 @@ class Api::ApiController < ApplicationController
     }.merge(options)
   end
 
-  private
+  # private
     # Checks wheter the received api_auth_token is valid.
     def authenticate_application
       if has_missing_params?
