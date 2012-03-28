@@ -3,7 +3,7 @@ class Api::VenuesController < ApplicationController
 		
 		markups=[]	
 
-		venues=Foursquare_client.get_venues(params_right_for_search_venues(params[:ll],params[:radius])).groups[0].items 
+		venues=Foursquare_client.get_venues(right_params_for_search_venues(params[:ll],params[:radius])).groups[0].items 
 		# raise venues.to_s
 		venues.each do |venue|
 
@@ -43,7 +43,7 @@ class Api::VenuesController < ApplicationController
 	end 
 
 	private 
-		def params_right_for_search_venues(ll,radius)
+		def right_params_for_search_venues(ll,radius)
 			params_for_search_venues = Hash.new(0)
 			params_for_search_venues[:ll] = ll
 			p radius.blank?
