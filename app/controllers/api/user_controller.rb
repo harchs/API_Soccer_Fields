@@ -83,8 +83,13 @@ class Api::UserController < Api::ApiController
 
   def sign_out
     user_key = UserKey.find_by_credential(params[:credential])
-    user_key.disable_credential!
-    render_response("API_SUCCESS", nil, nil)
+    unless user_key
+      render_response("API_NO_USER_ERROR", nil, {:aditional_data => {:errors => "It looks like the user related to the credential does not exist."}, :status => 'failure'})
+    else  
+      user_key.update_attribute(:credential, "")
+      render_response("API_SUCCESS", nil, {:status => 'success'})
+    end
+
   end
 
   def show

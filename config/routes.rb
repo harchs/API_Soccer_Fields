@@ -4,7 +4,7 @@ APISoccerField::Application.routes.draw do
 
   
 
-  get "user/sign_out"
+
 
   get "key/create"
 
@@ -14,6 +14,7 @@ APISoccerField::Application.routes.draw do
     resources :user do
       collection do
         match "sign_in"
+        match "sign_out"
       end
      end
 
