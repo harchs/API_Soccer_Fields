@@ -7,7 +7,7 @@ class Api::V1::ApiController < ApplicationController
   attr_accessor :app_id  
 
 
-  # before_filter :authenticate_application
+  before_filter :authenticate_application
   # before_filter :authenticate_user_token
 
   respond_to  :json, :xml

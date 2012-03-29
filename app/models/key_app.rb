@@ -1,5 +1,5 @@
 class KeyApp < ActiveRecord::Base
-	belongs_to :apps
+	belongs_to :app
     def self.save_keys(params)
 		create! do |app|
 			app.public_key = params["public_key"]
