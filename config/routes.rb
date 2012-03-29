@@ -82,4 +82,5 @@ APISoccerField::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 
   match "authenticate" => "Authenticate#auth"
+
 end
