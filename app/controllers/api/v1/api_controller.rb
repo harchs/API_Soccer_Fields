@@ -7,8 +7,8 @@ class Api::V1::ApiController < ApplicationController
   attr_accessor :app_id  
 
 
-  # before_filter :authenticate_application
-  # before_filter :authenticate_user_token
+  before_filter :authenticate_application
+  #before_filter :authenticate_user_token
 
   respond_to  :json, :xml
 
@@ -99,7 +99,7 @@ class Api::V1::ApiController < ApplicationController
         options[:valid_date]= params[:valid_date]
 
         #define the params to generatwe de secret_token
-        params_auth= [private_key, public_key]
+        params_auth= [public_key,private_key]
 
         auditor = Auth_manager.new(public_key, private_key, KeysManager.new ) 
         result = auditor.authenticate(public_key, hash_auth, params_auth, options )
