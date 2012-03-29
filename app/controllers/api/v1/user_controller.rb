@@ -13,7 +13,7 @@
   param:: auth_code: Code generated with private key and modifiers
   param:: public_key: Public key of the app
   param:: valide_date: [Optional] Specifies whether or not to consider the date to generate the auth_code "aaaa/mm/dd hh"
-  param:: modifiers: Modifiers used for encode the private key of the app "modifiers=m1,m2,...mn"
+  param:: modifiers: [Optional] Modifiers used for encode the private key of the app "modifiers=m1,m2,...mn"
 
   output:: json
     {
@@ -44,9 +44,9 @@
 
   param:: credential: Credential asigned to user
   param:: public_key: Public key of the app
-  param:: auth_code: Code generated with private key and modifiers
+  param:: auth_code: Code generated with public key,private key and modifiers these are optional
   param:: valide_date: [Optional] Specifies whether or not to consider the date to generate the auth_code "aaaa/mm/dd hh"
-  param:: modifiers: Modifiers used for encode the private key of the app "modifiers=m1,m2,...mn"
+  param:: modifiers: [Optional] Modifiers used for encode the private key of the app "modifiers=m1,m2,...mn"
 
   output:: json
     {

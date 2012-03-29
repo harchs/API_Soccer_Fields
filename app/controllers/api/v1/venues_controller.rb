@@ -7,9 +7,9 @@
 	param:: ll: String with latitude and longitude of geolocation of user "ll=10.43223,-74.121222"
 	param:: radius: Limit results to venues within this many meters of the specified location
 	param:: public_key: Public key of the app
-	param:: auth_code: Code generated with private key and modifiers
+	param:: auth_code: Code generated with public key,private key and modifiers these are optional
 	param:: valide_date: [Optional] Specifies whether or not to consider the date to generate the auth_code "aaaa/mm/dd hh"
-	param:: modifiers: Modifiers used for encode the private key of the app "modifiers=m1,m2,...mn"
+	param:: modifiers: [Optional] Modifiers used for encode the private key of the app "modifiers=m1,m2,...mn"
 
 
 	output:: json
