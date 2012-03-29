@@ -64,17 +64,10 @@ class Api::V1::ApiController < ApplicationController
     }.merge(options)
   end
 
-<<<<<<< HEAD
 
   private
-
-  # Checks wheter the received api_auth_token is valid.
-  def authenticate_application
-=======
-  # private
     # Checks wheter the received api_auth_token is valid.
     def authenticate_application
->>>>>>> 66e1d49fca5ed891df2478e464abca000fe84227
       if has_missing_params?
          render_response("API_PARAMS_ERROR", nil, {:status => 'failure', :aditional_data => {:errors => "You must provide the auth data."}}) and return
          # render_response("API_PARAMS_ERROR", nil, {:status => 'failure', :aditional_data => {:errors => "You must provide auth data"}}) and return
@@ -110,29 +103,25 @@ class Api::V1::ApiController < ApplicationController
 
         auditor = Auth_manager.new(public_key, private_key, KeysManager.new ) 
         result = auditor.authenticate(public_key, hash_auth, params_auth, options )
-<<<<<<< HEAD
   end
-=======
-    end
 
-    def create_new_user_instance
-      user = User.create({
-          :first_name=>params[:first_name],
-          :last_name=>params[:last_name],
-          :nick_name=>params[:nick_name],
-          :email=>params[:email]
-        }) 
-    end
+  def create_new_user_instance
+    user = User.create({
+        :first_name=>params[:first_name],
+        :last_name=>params[:last_name],
+        :nick_name=>params[:nick_name],
+        :email=>params[:email]
+      }) 
+  end
 
-    def create_new_user_key_instance(user)
-      UserKey.create({
-      :uid => params[:user_uid],
-      :token => params[:user_token],
-      :app_id => app_id,
-      :user => user
-      })
-    end
+  def create_new_user_key_instance(user)
+    UserKey.create({
+    :uid => params[:user_uid],
+    :token => params[:user_token],
+    :app_id => app_id,
+    :user => user
+    })
+  end
    
 
->>>>>>> 66e1d49fca5ed891df2478e464abca000fe84227
 end
