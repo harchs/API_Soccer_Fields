@@ -59,8 +59,6 @@ class Api::ApiController < ApplicationController
     end
   end
 
-  
-
   # Initializes the default options with the ones passed by the user.
   def default_render_options(options)
     {
@@ -70,9 +68,11 @@ class Api::ApiController < ApplicationController
     }.merge(options)
   end
 
+
   private
-    # Checks wheter the received api_auth_token is valid.
-    def authenticate_application
+
+  # Checks wheter the received api_auth_token is valid.
+  def authenticate_application
       if has_missing_params?
          render_response("API_PARAMS_ERROR", nil, {:status => 'failure', :aditional_data => {:errors => "You must provide the auth data."}}) and return
          # render_response("API_PARAMS_ERROR", nil, {:status => 'failure', :aditional_data => {:errors => "You must provide auth data"}}) and return
@@ -89,13 +89,13 @@ class Api::ApiController < ApplicationController
       else
         render_response("API_401", nil, {:status => "failure", :aditional_data => {:errors => "Public Key is invalid"}})
       end 
-    end
+  end
 
-    def has_missing_params?
-      params[:public_key].blank? || params[:auth_code].blank? 
-    end
+  def has_missing_params?
+    params[:public_key].blank? || params[:auth_code].blank? 
+  end
 
-    def auth_hashes_match? (keys_app)
+  def auth_hashes_match? (keys_app)
         public_key = params[:public_key]
         hash_auth = params[:auth_code]
         private_key = keys_app.private_key
@@ -108,7 +108,5 @@ class Api::ApiController < ApplicationController
 
         auditor = Auth_manager.new(public_key, private_key, KeysManager.new ) 
         result = auditor.authenticate(public_key, hash_auth, params_auth, options )
-    end
-   
-
+  end
 end
