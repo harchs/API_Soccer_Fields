@@ -8,6 +8,7 @@ APISoccerField::Application.routes.draw do
   get "key/destroy"
 
   namespace :api, :defaults => {:format => "json"} do
+    namespace :v1 do
     resources :user do
       collection do
         match "sign_in"
@@ -20,6 +21,7 @@ APISoccerField::Application.routes.draw do
         match "find" 
       end
      end
+   end
   end
 
   # The priority is based upon order of creation:

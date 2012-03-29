@@ -1,5 +1,5 @@
 require 'KeysManager'
-class KeyController < ActionController::Base
+class KeyController < ApplicationController
 	
 	#http://prueba.local:3000/key/create?appName=test
   def create
