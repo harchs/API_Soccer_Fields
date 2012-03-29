@@ -1,6 +1,6 @@
 require 'auth_manager'
 require 'KeysManager'
-class Api::v1::ApiController < ApplicationController
+class Api::V1::ApiController < ApplicationController
   # You can disable csrf protection on controller-by-controller basis.
   # In all the api calls we do not want to protect from forgery.
 
