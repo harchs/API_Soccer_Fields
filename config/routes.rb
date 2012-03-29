@@ -9,19 +9,19 @@ APISoccerField::Application.routes.draw do
 
   namespace :api, :defaults => {:format => "json"} do
     namespace :v1 do
-    resources :user do
-      collection do
-        match "sign_in"
-        match "sign_out"
-      end
-     end
+      resources :user do
+        collection do
+          match "sign_in"
+          match "sign_out"
+        end
+       end
 
-     resources :venues do
-      collection do
-        match "find" 
-      end
+       resources :venues do
+        collection do
+          match "find" 
+        end
+       end
      end
-   end
   end
 
   # The priority is based upon order of creation:

@@ -44,7 +44,7 @@
  	::output-end::
 =end
 
-class Api::v1::VenuesController < Api::v1::ApiController
+class Api::V1::VenuesController < Api::V1::ApiController
 
 	# before_filter :authenticate_user_token
 	def find

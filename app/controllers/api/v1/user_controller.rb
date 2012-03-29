@@ -59,7 +59,7 @@
 =end
 require 'KeysManager'
 require 'Time_Local'
-class Api::v1::UserController < Api::v1::ApiController 
+class Api::V1::UserController < Api::V1::ApiController 
 
   def sign_in
     #verify params
