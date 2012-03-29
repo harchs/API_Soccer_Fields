@@ -9,7 +9,7 @@ class KeyController < ApplicationController
     app_hash['name'] = params[:appName]
     app_hash['url'] = params[:url]
 
-    app = Apps.find_by_name(params[:appName])||Apps.save_app(app_hash)
+    app = App.find_by_name(params[:appName])||App.save_app(app_hash)
 
 
 
