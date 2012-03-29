@@ -1,6 +1,5 @@
-
 =begin apidoc
-	url:: /venues/find
+	url:: /find
 	method:: GET
 	access:: RESTRICTED by authentication of the app
 	return:: [JSON] - list of venues objects

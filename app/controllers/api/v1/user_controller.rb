@@ -1,5 +1,5 @@
 =begin apidoc
-  url:: /user/sign_in
+  url:: /sign_in
   method:: GET
   access:: RESTRICTED by authentication of the app
   return:: [JSON] - list of venues objects
@@ -37,7 +37,7 @@
 =end
 
 =begin apidoc
-  url:: /user/sign_out
+  url:: /sign_out
   method:: GET
   access:: RESTRICTED by authentication of the app
   return:: [JSON] - list of venues objects

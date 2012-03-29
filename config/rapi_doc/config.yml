@@ -1,5 +1,8 @@
+
+
 venues:
-  location: "/api/v1/"
+  location: "/api/v1/venues/"
   controller_name: "api/v1/venues_controller.rb"
 users:
+  location: "/api/v1/user/"
   controller_name: "api/v1/user_controller.rb"
