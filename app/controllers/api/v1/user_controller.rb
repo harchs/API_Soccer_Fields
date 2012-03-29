@@ -8,9 +8,9 @@
   param:: last_name: Lasta name of the user
   param:: email: Email of the user
   param:: nick_name: [Optional] Nick name of the user
-  param:: uid: uid returned by the outh authentication when this sign in diferentes app (facebook, twitter, ...)
-  param:: token: token returned by the outh authentication when this sign in diferentes app (facebook, twitter, ...)
-  param:: auth_code: Code generated with public key,private key and modifiers these are optional
+  param:: user_uid: uid returned by the outh authentication when this sign in diferentes app (facebook, twitter, ...)
+  param:: user_token: token returned by the outh authentication when this sign in diferentes app (facebook, twitter, ...)
+  param:: auth_code: Code generated with private key and modifiers
   param:: public_key: Public key of the app
   param:: valide_date: [Optional] Specifies whether or not to consider the date to generate the auth_code "aaaa/mm/dd hh"
   param:: modifiers: [Optional] Modifiers used for encode the private key of the app "modifiers=m1,m2,...mn"
