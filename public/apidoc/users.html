@@ -75,7 +75,7 @@
   
   <p class='description'><strong>Description:</strong> </p>
 
-  <h2><span id='http_verb'>GET</span>/user/sign_in</h2>
+  <h2><span id='http_verb'>GET</span>/sign_in</h2>
   
   
     <strong>Access:</strong> RESTRICTED by authentication of the app<br />
@@ -90,7 +90,7 @@
     
     <strong>Parameters:</strong>
     <ul>
-      <li>firs_name: First name of the user </li><li>last_name: Lasta name of the user</li><li>email: Email of the user</li><li>nick_name: [Optional] Nick name of the user</li><li>uid: uid returned by the outh authentication when this sign in diferentes app (facebook, twitter, ...)</li><li>token: token returned by the outh authentication when this sign in diferentes app (facebook, twitter, ...)</li><li>auth_code: Code generated with private key and modifiers</li><li>valide_date: [Optional] Specifies whether or not to consider the date to generate the auth_code "aaaa/mm/dd hh"</li><li>modifiers: Modifiers used for encode the private key of the app "modifiers=m1,m2,...mn"</li>
+      <li>firs_name: First name of the user </li><li>last_name: Lasta name of the user</li><li>email: Email of the user</li><li>nick_name: [Optional] Nick name of the user</li><li>uid: uid returned by the outh authentication when this sign in diferentes app (facebook, twitter, ...)</li><li>token: token returned by the outh authentication when this sign in diferentes app (facebook, twitter, ...)</li><li>auth_code: Code generated with private key and modifiers</li><li>public_key: Public key of the app</li><li>valide_date: [Optional] Specifies whether or not to consider the date to generate the auth_code "aaaa/mm/dd hh"</li><li>modifiers: Modifiers used for encode the private key of the app "modifiers=m1,m2,...mn"</li>
     </ul>
   
 
@@ -140,7 +140,7 @@
   
   <p class='description'><strong>Description:</strong> </p>
 
-  <h2><span id='http_verb'>GET</span>/user/sign_out</h2>
+  <h2><span id='http_verb'>GET</span>/sign_out</h2>
   
   
     <strong>Access:</strong> RESTRICTED by authentication of the app<br />
@@ -155,7 +155,7 @@
     
     <strong>Parameters:</strong>
     <ul>
-      <li>credential: Credential asigned to user</li><li>auth_code: Code generated with private key and modifiers</li><li>valide_date: [Optional] Specifies whether or not to consider the date to generate the auth_code "aaaa/mm/dd hh"</li><li>modifiers: Modifiers used for encode the private key of the app "modifiers=m1,m2,...mn"</li>
+      <li>credential: Credential asigned to user</li><li>public_key: Public key of the app</li><li>auth_code: Code generated with private key and modifiers</li><li>valide_date: [Optional] Specifies whether or not to consider the date to generate the auth_code "aaaa/mm/dd hh"</li><li>modifiers: Modifiers used for encode the private key of the app "modifiers=m1,m2,...mn"</li>
     </ul>
   
 

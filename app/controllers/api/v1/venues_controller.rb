@@ -1,6 +1,5 @@
-
 =begin apidoc
-	url:: /venues/find
+	url:: /find
 	method:: GET
 	access:: RESTRICTED by authentication of the app
 	return:: [JSON] - list of venues objects
@@ -44,7 +43,7 @@
  	::output-end::
 =end
 
-class Api::VenuesController < Api::ApiController
+class Api::v1::VenuesController < Api::v1::ApiController
 
 	# before_filter :authenticate_user_token
 	def find
