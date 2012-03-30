@@ -14,14 +14,17 @@
           var params = $("#params").val();
           $("#url").html("Auth code and public key automatically added. http://api-soccer-fields.heroku.com/api/v1/venues/find?"+params+"&auth_code=419abe56bf64699428b51281d09fb4cb6d465e74&public_key=172199ff243f16629108e7e9a0f9259638c2454f");
 
-            $.getJSON("https://api.foursquare.com/v2/venues/search?ll=40.7,-74&oauth_token=XCA4IZF2A3DXSHWOWGAN1LMWBV5KAL33PXMKAXTLWM1EXDMV&v=20120330", function(data) {
+            $.getJSON('http://api-soccer-fields.heroku.com/api/v1/venues/find?'+params+'&auth_code=419abe56bf64699428b51281d09fb4cb6d465e74&public_key=172199ff243f16629108e7e9a0f9259638c2454f', function(data) {
                 alert("ok");
-                alert(data);
+                alert(JSON.stringify(data));
                 $("#response").html(data);
             });
 
         });
       });
+
+      
+
     </script>
     <div class="content">
       <h1 style="margin-left:20px;margin-bottom:30px">Api Explorer</h1>
