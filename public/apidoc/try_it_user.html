@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Home</title>
     <base id="base_target"></base>
-    <link rel="stylesheet" href="/assets/bootstrap.min.css">
+    <link rel="stylesheet" href="apidoc.css">
     <script src="http://code.jquery.com/jquery-1.7.2.min.js" type="text/javascript"></script>
 
   </head>
@@ -13,17 +13,41 @@
       $(document).ready(function(){
         $("#btn").click(function(){
           var params = $("#params").val();
-          $("#url").html("Auth code and public key automatically added. http://api-soccer-fields.heroku.com/api/v1/"+params+"&auth_code=419abe56bf64699428b51281d09fb4cb6d465e74&public_key=172199ff243f16629108e7e9a0f9259638c2454f")
+          var keys="&auth_code=419abe56bf64699428b51281d09fb4cb6d465e74"+
+          "&public_key=172199ff243f16629108e7e9a0f9259638c2454f";
+          var url="http://api-soccer-fields.heroku.com/api/v1/user/"+params+keys;
+          +
+          $("#url").html("Auth code and public key automatically added "+url);
+
+            $.getJSON(url, function(data) {
+                var result=jsonToHtml(data);
+                //alert("data:"+result);
+                $("#response").html(result);
+            }).error(function(data) {  
+                var result=jsonToHtml(data);
+                $("#response").html(result); 
+              });
+
+
         });
-      }); 
+      });
+      function jsonToHtml(json){
+        var stringJson=JSON.stringify(json, null, 4);
+        stringJson=stringJson.replace(/{/g, "{<blockquote>");
+        stringJson=stringJson.replace(/}/g, "</blockquote>}");
+        stringJson=stringJson.replace(/\n/g, "<br/>");
+        return stringJson;
+      }
     </script>
     <div class="content">
-      <h1 style="margin-left:20px;margin-bottom:30px">Api Explorer</h1>
-      <div style="border:1px solid #b4aaaa;background-color:#eeeeee;width:80%;margin-left:5%;-moz-border-radius:10px;-webkit-border-radius-topleft:10">
-        <label style="font-weight:bold;margin-left:15px;margin-top:15px;font-size:1em;width:300px;float:left">http://api-soccer-fields.heroku.com/api/v1/</label><input type="text" value="user/sign_out?credential=b7a636f6e07ec945938ca692a33ca4404a33deb8" style="width:350px;padding:5px;margin-right:15px;margin-top:10px" id="params"><a href="#" class="btn btn-success" id="btn">view</a>
-        <p style="font-weight:bold;color:#b4aaaa;word-wrap: break-word;margin-left:15px;margin-right:15px" id="url">Auth code and public key automatically added. http://api-soccer-fields.heroku.com/api/v1/user/sign_out?credential=b7a636f6e07ec945938ca692a33ca4404a33deb8&auth_code=419abe56bf64699428b51281d09fb4cb6d465e74&public_key=172199ff243f16629108e7e9a0f9259638c2454f</p>
+      <h1>Api Explorer</h1>
+      <div class="container fieldSearch">
+        <label>http://api-soccer-fields.heroku.com/api/v1/</label>
+        <input type="text" value="sign_out?credential=b7a636f6e07ec945938ca692a33ca4404a33deb8" id="params">
+        <a href="#" class="btn btn-success" id="btn">view</a>
+        <p id="url">Auth code and public key automatically added. http://api-soccer-fields.heroku.com/api/v1/user/sign_out?credential=b7a636f6e07ec945938ca692a33ca4404a33deb8&auth_code=419abe56bf64699428b51281d09fb4cb6d465e74&public_key=172199ff243f16629108e7e9a0f9259638c2454f</p>
       </div>
-      <div></div>
+      <div  id="response" style="container"></div>
     
     </div>
   </body>
